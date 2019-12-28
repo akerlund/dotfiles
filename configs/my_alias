@@ -1,0 +1,23 @@
+alias home='cd ~'
+
+alias how='cat ~/Documents/my_configs_and_scripts/how/how.txt'
+alias ehow='vim ~/Documents/my_configs_and_scripts/how/how.txt'
+alias howvim='cat ~/Documents/my_configs_and_scripts/how/how_vim.txt'
+
+alias rbash='source  ~/.bashrc'
+alias ebash='vim  ~/.bashrc'
+
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+alias .......='cd ../../../../../../'
+alias ........='cd ../../../../../../../'
+alias .........='cd ../../../../../../../../'
+
+
+alias ttitle='python3  ~/Documents/my_configs_and_scripts/scripts/set_terminal_title.py'
+
+alias tmux='tmux -2'
+

@@ -1,0 +1,8 @@
+# Linux
+
+sudo // make u super or something?
+
+# Git
+
+# Vim
+
