@@ -2,7 +2,9 @@ alias home='cd ~'
 
 alias how='cat ~/Documents/my_configs_and_scripts/how/how.txt'
 alias ehow='vim ~/Documents/my_configs_and_scripts/how/how.txt'
+
 alias howvim='cat ~/Documents/my_configs_and_scripts/how/how_vim.txt'
+alias howvivado='cat ~/Documents/my_configs_and_scripts/how/how_vivado.txt'
 
 alias rbash='source  ~/.bashrc'
 alias ebash='vim  ~/.bashrc'

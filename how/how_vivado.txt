@@ -1,0 +1,3 @@
+# Vivado
+
+-mode out_of_context
