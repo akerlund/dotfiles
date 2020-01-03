@@ -12,6 +12,11 @@ git clone https://github.com/morhetz/gruvbox.git ~/.vim/bundle/gruvbox
 # ifconfig
 sudo apt install net-tools
 
+# gtop
+sudo apt-get install nodejs libnode64
+sudo apt-get install npm
+sudo npm install gtop -g
+
 # Others
 sudo apt-get install inkscape
 sudo apt-get install pinta
