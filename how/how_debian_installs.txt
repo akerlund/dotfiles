@@ -22,4 +22,7 @@ sudo apt-get install inkscape
 sudo apt-get install pinta
 sudo apt-get install irssi
 
-
+# Vivado
+sudo apt update
+sudo apt install libtinfo-dev
+sudo ln -s /lib/x86_64-linux-gnu/libtinfo.so.6 /lib/x86_64-linux-gnu/libtinfo.so.5
