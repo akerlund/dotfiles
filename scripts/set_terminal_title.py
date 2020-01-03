@@ -17,3 +17,15 @@ if __name__ == '__main__':
     print("ERROR: " + e)
   else:
     print("OK: " + out.decode('utf-8').strip())
+
+
+# Also, comment out the row where PS1 is assigned in .bashrc
+
+# If this is an xterm set the title to user@host:dir
+# case "$TERM" in
+# xterm*|rxvt*)
+# #   PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#    ;;  
+# *)
+#    ;;  
+# esac

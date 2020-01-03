@@ -1,0 +1,20 @@
+# Git
+ls -al ~/.ssh
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+sudo apt-get install xclip
+git clone git@github.com:akerlund/my_configs_and_scripts.git
+
+# Vim
+sudo apt install curl
+mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+git clone https://github.com/morhetz/gruvbox.git ~/.vim/bundle/gruvbox
+
+# ifconfig
+sudo apt install net-tools
+
+# Others
+sudo apt-get install inkscape
+sudo apt-get install pinta
+sudo apt-get install irssi
+
+
