@@ -7,7 +7,7 @@ servers = (
     tls_verify = "yes";
     autoconnect = "yes";
   },
-  { 
+  {
     address = "irc.quakenet.org";
     chatnet = "QuakeNet";
     port = "6667";
@@ -20,6 +20,9 @@ chatnets = {
     max_kicks = "1";
     max_msgs = "4";
     max_whois = "1";
+    sasl_mechanism = "PLAIN";
+    sasl_username = "freakuency";
+    sasl_password = "x";
   };
   QuakeNet = {
     type = "IRC";
@@ -32,7 +35,9 @@ chatnets = {
 channels = (
   { name = "#ledalert"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "##stm32"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#fpga"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "##fpga"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "##verilog"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "##vhdl"; chatnet = "Freenode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -188,6 +193,11 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "erland"; user_name = "freakuency"; nick = "freakuency"; };
+  core = {
+    real_name = "erland";
+    user_name = "freakuency";
+    nick = "freakuency";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = { theme = "default"; };
 };

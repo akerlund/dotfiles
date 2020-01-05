@@ -26,6 +26,7 @@ sudo apt-get install irssi
 sudo apt update
 sudo apt install libtinfo-dev
 sudo ln -s /lib/x86_64-linux-gnu/libtinfo.so.6 /lib/x86_64-linux-gnu/libtinfo.so.5
+sudo apt-get install libncurses5
 
 # Gnome terminal
 sudo apt-get install gnome-terminal
@@ -33,5 +34,7 @@ https://github.com/Mayccoll/Gogh
 sudo apt-get install dconf-cli uuid-runtime
 bash -c  "$(wget -qO- https://git.io/vQgMr)"
 
-
+# Python
+sudo apt-get install python3-pip
+pip3 install numpy
 
