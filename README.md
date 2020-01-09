@@ -1,10 +1,10 @@
-# my_configs_and_scripts
+# dotfiles
 My saved configurations and scripts for Linux usage
 
 ## /configs
 ### /i3
 My i3 window manager configuration. Today the bar look like:
-![gif_pixel_picture](https://github.com/akerlund/my_configs_and_scripts/blob/master/configs/i3status_bar.png)
+![gif_pixel_picture](https://github.com/akerlund/dotfiles/blob/master/configs/i3status_bar.png)
 ### git
 ### tmux
 ### vim

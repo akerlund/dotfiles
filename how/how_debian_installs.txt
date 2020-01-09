@@ -2,7 +2,7 @@
 ls -al ~/.ssh
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 sudo apt-get install xclip
-git clone git@github.com:akerlund/my_configs_and_scripts.git
+git clone git@github.com:akerlund/dotfiles.git
 
 # Vim
 sudo apt install curl
