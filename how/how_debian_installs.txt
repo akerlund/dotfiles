@@ -8,6 +8,9 @@ git clone git@github.com:akerlund/dotfiles.git
 sudo apt install curl
 mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 git clone https://github.com/morhetz/gruvbox.git ~/.vim/bundle/gruvbox
+git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
+git clone https://github.com/mileszs/ack.vim.git ~/.vim/bundle/ack.vim
+sudo  apt-get install silversearcher-ag
 
 # ifconfig
 sudo apt install net-tools
@@ -38,4 +41,11 @@ bash -c  "$(wget -qO- https://git.io/vQgMr)"
 # Python
 sudo apt-get install python3-pip
 pip3 install numpy
+
+# SSH
+sudo apt install openssh-server
+sudo systemctl status ssh
+sudo ufw allow ssh
+sudo systemctl start ssh
+
 

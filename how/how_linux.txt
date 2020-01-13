@@ -1,1 +1,16 @@
+# Run nmap in network to find a Raspberri Pi
 sudo nmap -sn 192.168.1.0/24
+
+# Check version of OS and kernel
+cat /etc/os-release
+uname -r
+hostnamectl
+lsb_release -a      # Linux Standard Base
+
+# Upgrade to new version
+sudo apt update
+sudo apt upgrade
+sudo apt dist-upgrade
+sudo do-release-upgrade
+
+
