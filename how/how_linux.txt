@@ -13,4 +13,6 @@ sudo apt upgrade
 sudo apt dist-upgrade
 sudo do-release-upgrade
 
-
+# Fonts
+fc-cache -vf
+fc-list
