@@ -1,6 +1,7 @@
 # Tmux
 
 tmux kill-session -t mysession
+tmux new -s mysession
 
 ----------------------------------
 C+b  $  |  Rename session

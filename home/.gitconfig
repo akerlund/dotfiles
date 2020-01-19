@@ -1,15 +1,32 @@
 [user]
-    name  = name
-    email = email
+  name  = name
+  email = email
 
 [include]
 
 [color]
-   ui = auto
+   ui     = auto
    branch = auto
    status = auto
-   diff = auto
+   diff   = auto
    interactive = auto
+
+[color "branch"]
+  current = yellow reverse
+  local   = yellow
+  remote  = green
+
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old  = red bold
+  new  = green bold
+
+[color "status"]
+  added     = yellow
+  changed   = green
+  untracked = cyan
 
 [alias]
     st = status
@@ -19,17 +36,17 @@
     update = !git pull --rebase --recurse-submodules && git submodule update --init
 
 [diff]
-    tool = meld
+    tool = kdiff3
 
 [difftool "meld"]
-     cmd = meld "$LOCAL" "$REMOTE"
+     cmd = kdiff3 "$LOCAL" "$REMOTE"
 
 [merge]
-    tool = meld
+    tool = kdiff3
 
 [mergetool "meld"]
-#   cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+#   cmd = kdiff3 "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = kdiff3 "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 
 [branch "master"]
     rebase = true
