@@ -1,0 +1,23 @@
+# Tmux
+
+tmux kill-session -t mysession
+
+----------------------------------
+C+b  $  |  Rename session
+C+b  (  |  Previous session
+C+b  )  |  Next ssession
+--------+-------------------------
+C+b  c  |  Create window
+C+b  ,  |  Rename window
+C+b  &  |  Close window
+--------+-------------------------
+C+b  {  |  Move pane left
+C+b  }  |  Move pane right
+C+b ' ' |  Sync panels
+C+b  q  |  Show pane numbers
+C+b  !  |  Convert pane to window
+C+b  x  |  Close pane
+--------+-------------------------
+C+b  ?  |  Show everything
+
+
