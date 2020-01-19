@@ -5,6 +5,7 @@ alias ehow='vim ~/Documents/dotfiles/how/how.txt'
 
 alias howvim='cat ~/Documents/dotfiles/how/how_vim.txt'
 alias howvivado='cat ~/Documents/dotfiles/how/how_vivado.txt'
+alias howtmux='cat ~/Documents/dotfiles/how/how_tmux.txt'
 
 alias rbash='source  ~/.bashrc'
 alias ebash='vim  ~/.bashrc'

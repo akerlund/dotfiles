@@ -48,4 +48,7 @@ sudo systemctl status ssh
 sudo ufw allow ssh
 sudo systemctl start ssh
 
-
+# VNC
+sudo apt-get install x11vnc
+sudo apt-get install vncviewer
+sudo x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/erland/.vnc/passwd -rfbport 5900 -shared &
