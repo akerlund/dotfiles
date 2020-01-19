@@ -1,5 +1,3 @@
-alias home='cd ~'
-
 alias how='cat ~/Documents/dotfiles/how/how.txt'
 alias ehow='vim ~/Documents/dotfiles/how/how.txt'
 
