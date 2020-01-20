@@ -1,0 +1,9 @@
+# New branch and commit/push
+git checkout -b branch_name
+git add file.txt
+git commit -m "Message"
+git push -u origin branch_name
+
+# Pull branch
+git pull origin other-branch
+

@@ -1,12 +1,12 @@
-alias how='cat ~/Documents/dotfiles/how/how.txt'
-alias ehow='vim ~/Documents/dotfiles/how/how.txt'
-
-alias howvim='cat ~/Documents/dotfiles/how/how_vim.txt'
-alias howvivado='cat ~/Documents/dotfiles/how/how_vivado.txt'
-alias howtmux='cat ~/Documents/dotfiles/how/how_tmux.txt'
-
 alias rbash='source  ~/.bashrc'
 alias ebash='vim  ~/.bashrc'
+
+alias how='cat ~/Documents/dotfiles/how/how.txt'
+alias ehow='vim ~/Documents/dotfiles/how/how.txt'
+alias howgit='cat ~/Documents/dotfiles/how/how_git.txt'
+alias howvim='cat ~/Documents/dotfiles/how/how_vim.txt'
+alias howtmux='cat ~/Documents/dotfiles/how/how_tmux.txt'
+alias howvivado='cat ~/Documents/dotfiles/how/how_vivado.txt'
 
 alias ..='cd ..'
 alias ...='cd ../../'
@@ -17,12 +17,10 @@ alias .......='cd ../../../../../../'
 alias ........='cd ../../../../../../../'
 alias .........='cd ../../../../../../../../'
 
-
-alias ttitle='python3  ~/Documents/dotfiles/scripts/set_terminal_title.py'
-
 alias tmux='tmux -2'
 alias vnc='vncviewer &'
 
 alias i2h='python ~/Documents/dotfiles/scripts/int_to_hex.py'
 alias h2i='python ~/Documents/dotfiles/scripts/hex_to_int.py'
+alias ttitle='python3  ~/Documents/dotfiles/scripts/set_terminal_title.py'
 
