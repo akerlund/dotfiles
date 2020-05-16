@@ -36,17 +36,17 @@
     update = !git pull --rebase --recurse-submodules && git submodule update --init
 
 [diff]
-    tool = kdiff3
+    tool = p4merge
 
 [difftool "meld"]
-     cmd = kdiff3 "$LOCAL" "$REMOTE"
+     cmd = p4merge "$LOCAL" "$REMOTE"
 
 [merge]
-    tool = kdiff3
+    tool = p4merge
 
 [mergetool "meld"]
-#   cmd = kdiff3 "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-    cmd = kdiff3 "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+#   cmd = p4merge "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = p4merge "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 
 [branch "master"]
     rebase = true
