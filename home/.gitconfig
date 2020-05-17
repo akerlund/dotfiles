@@ -38,13 +38,13 @@
 [diff]
     tool = p4merge
 
-[difftool "meld"]
+[difftool "p4merge"]
      cmd = p4merge "$LOCAL" "$REMOTE"
 
 [merge]
     tool = p4merge
 
-[mergetool "meld"]
+[mergetool "p4merge"]
 #   cmd = p4merge "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
     cmd = p4merge "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 

@@ -80,6 +80,8 @@ wget https://cdist2.perforce.com/perforce/r19.2/bin.linux26x86_64/p4v.tgz
 tar zxvf p4v.tgz
 sudo cp -r p4v-* /usr/local/p4v/
 sudo ln -s /usr/local/p4v/bin/p4merge /usr/local/bin/p4merge
+sudo ln -s /usr/local/p4v/bin/p4merge /usr/bin/p4merge
+
 ```
 
 ## Powerline fonts
