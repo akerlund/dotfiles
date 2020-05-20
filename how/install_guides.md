@@ -232,3 +232,10 @@ Some tricks that are needed to get 2019.2 working as it should
 sudo ln -s /lib64/libtinfo.so.6 /lib64/libtinfo.so.5
 sudo ln -s /usr/lib64/libncurses.so.6 /usr/lib64/libncurses.so.5
 ```
+
+## GNU Octave
+
+```bash
+sudo dnf config-manager --set-enabled PowerTools
+sudo yum install octave
+```
