@@ -233,9 +233,44 @@ sudo ln -s /lib64/libtinfo.so.6 /lib64/libtinfo.so.5
 sudo ln -s /usr/lib64/libncurses.so.6 /usr/lib64/libncurses.so.5
 ```
 
+Installing Vitis in batch mode; Java installer is broken
+
+```bash
+sudo ./xsetup -b Install -l /opt/Xilinx/ --agree 3rdPartyEULA,WebTalkTerms,XilinxEULA --edition "Vitis Unified Software Platform"
+```
+
+Adding a desktop entry to
+
+```
+/usr/share/applications/vivado.desktop
+```
+
+```
+[Desktop Entry]
+Version=2019.2
+Name=Vivado
+Exec=/opt/Xilinx/Vivado/2019.2/bin/vivado
+Icon=/opt/Xilinx/Vivado/2019.2/doc/images/vivado_logo.ico
+Terminal=false
+```
+
+Board files goes to
+
+```
+/opt/Xilinx/Vivado/2019.2/data/boards/board_files
+```
+
+
 ## GNU Octave
 
 ```bash
 sudo dnf config-manager --set-enabled PowerTools
 sudo yum install octave
+```
+
+## gsettings
+
+```bash
+sudo yum install gsettings-desktop-schemas.i686
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
 ```
