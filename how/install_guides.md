@@ -274,3 +274,31 @@ sudo yum install octave
 sudo yum install gsettings-desktop-schemas.i686
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 ```
+
+## Verilator
+
+```bash
+sudo yum install perl
+cd ~/Documents
+git clone https://github.com/verilator/verilator
+cd verilator
+autoconf
+./configure
+make
+sudo make install
+```
+
+## GTK-Wave
+
+```bash
+sudo yum install gtkwave.x86_64
+```
+
+## WeeChat
+
+https://centos.pkgs.org/8/epel-testing-x86_64/weechat-2.9-1.el8.x86_64.rpm.html
+```bash
+sudo yum install enchant
+sudo rpm -i weechat-2.9-1.el8.x86_64.rpm
+```
+
