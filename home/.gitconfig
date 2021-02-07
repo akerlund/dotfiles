@@ -34,6 +34,7 @@
     br = branch
     lg = log --decorate --oneline --graph --format=\"%C(auto)%h %d%Creset %s (%C(green)%cn%C(reset)) (%C(red)%cr%C(reset))\"
     update = !git pull --rebase --recurse-submodules && git submodule update --init
+    di = difftool
 
 [diff]
     tool = p4merge
@@ -50,3 +51,5 @@
 
 [branch "master"]
     rebase = true
+[init]
+	templateDir = /home/erland/.git-template

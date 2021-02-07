@@ -20,7 +20,7 @@ alias .........='cd ../../../../../../../../'
 alias tmux='tmux -2'
 alias vnc='vncviewer &'
 
-alias i2h='python ~/Documents/dotfiles/scripts/int_to_hex.py'
-alias h2i='python ~/Documents/dotfiles/scripts/hex_to_int.py'
+alias i2h='python3 ~/Documents/dotfiles/scripts/int_to_hex.py'
+alias h2i='python3 ~/Documents/dotfiles/scripts/hex_to_int.py'
 alias ttitle='python3  ~/Documents/dotfiles/scripts/set_terminal_title.py'
 

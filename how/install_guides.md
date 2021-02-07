@@ -1,5 +1,25 @@
 # Debian Installation Guide
 
+## Add User
+
+For Ubuntu server, sometimes there is no version of bash
+
+```bash
+sudo chsh -s /bin/bash <user_name>
+```
+
+## Ubuntu Server
+sudo apt install ubuntu-restricted-extras
+
+## Regolith
+sudo add-apt-repository ppa:regolith-linux/release
+sudo apt install regolith-desktop-standard
+// Finding Status Indicators
+//apt search i3xrocks-
+sudo apt install i3xrocks-memory
+regolith-look refresh
+
+
 ## Git
 ```bash
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -89,6 +109,37 @@ sudo ln -s /usr/local/p4v/bin/p4merge /usr/bin/p4merge
 ```bash
 sudo apt install fonts-powerline
 ```
+### Systemd unit file
+
+Copy example service file and edit it
+
+```bash
+mkdir -p ~/.config/systemd/user
+sudo cp /usr/lib/systemd/user/vncserver@.service ~/.config/systemd/user/vncserver@.service
+sudo vim ~/.config/systemd/user/vncserver@.service
+```
+
+This should work
+
+```
+[Unit]
+Description=Remote desktop service (VNC)
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=erland
+Group=erland
+WorkingDirectory=/home/erland
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
+ExecStart=/usr/bin/vncserver -geometry 3440x1440 -localhost no %i
+ExecStop=/usr/bin/vncserver -kill %i
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
 
 # CentOS Installation GUide
 
