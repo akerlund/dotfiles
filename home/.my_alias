@@ -24,3 +24,5 @@ alias i2h='python3 ~/Documents/dotfiles/scripts/int_to_hex.py'
 alias h2i='python3 ~/Documents/dotfiles/scripts/hex_to_int.py'
 alias ttitle='python3  ~/Documents/dotfiles/scripts/set_terminal_title.py'
 
+alias cdc='pwd | xclip'
+alias cdp='cd $(xclip -o)'
