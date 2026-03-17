@@ -2,7 +2,8 @@
   name  = name
   email = email
 
-[include]
+[core]
+	editor = vim
 
 [color]
    ui     = auto
@@ -16,7 +17,6 @@
   local   = yellow
   remote  = green
 
-
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
@@ -29,6 +29,7 @@
   untracked = cyan
 
 [alias]
+    cm = commit -m
     st = status
     co = checkout
     br = branch
@@ -36,20 +37,6 @@
     update = !git pull --rebase --recurse-submodules && git submodule update --init
     di = difftool
 
-[diff]
-    tool = p4merge
-
-[difftool "p4merge"]
-     cmd = p4merge "$LOCAL" "$REMOTE"
-
-[merge]
-    tool = p4merge
-
-[mergetool "p4merge"]
-#   cmd = p4merge "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-    cmd = p4merge "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
-
 [branch "master"]
     rebase = true
-[init]
-	templateDir = /home/erland/.git-template
+

@@ -1,10 +1,7 @@
-set laststatus=2
-set statusline=%f "" For short file name
-
 execute pathogen#infect()
 ""autocmd vimenter * NERDTree
 
-colorscheme gruvbox
+colorscheme nord
 set background=dark
 set number
 
@@ -14,5 +11,5 @@ set tabstop=2
 set shiftwidth=2
 " " On pressing tab, insert 4 spaces
 set expandtab
-
-let g:python_highlight_all = 1
+set laststatus=2
+set statusline=%f "" For short file name

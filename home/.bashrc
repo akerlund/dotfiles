@@ -1,120 +1,149 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# ------------------------------------------------------------------------------
+# Alias and Functions
+# ------------------------------------------------------------------------------
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+alias rbash='source ~/.bashrc'
+alias ebash='vim ~/.bashrc'
+alias estar='vim ~/.config/starship.toml'
+alias maxgpu='nvidia-settings -a "[gpu:0]/GPUPowerMizerMode=1" > /dev/null 2>&1'
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+alias .......='cd ../../../../../../'
+alias ........='cd ../../../../../../../'
+alias .........='cd ../../../../../../../../'
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/Documents/dotfiles/home/.my_alias ]; then
-  . ~/Documents/dotfiles/home/.my_alias
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+function setup_ssh_agent {
+  if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)"
+  else
+    echo "SSH agent is already running."
   fi
-fi
+}
 
-source /home/erland/Xilinx/Vivado/2019.2/settings64.sh
+alias start_ssh='setup_ssh_agent'
+alias checkdns='echo "Lokal IP:  $(curl -s https://api.ipify.org)" && echo "Loopia IP: $(host akerlund.dev | awk "{print \$NF}")"'
+alias sshlog='sudo grep -a "sshd" /var/log/auth.log | tail -n 20'
+alias sshfail='sudo grep -a "Failed password" /var/log/auth.log | tail -n 20'
 
+# File management and system monitoring aliases
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -la --icons --group-directories-first'
+alias cat='bat --style=plain'
+alias top='btm'
+alias du='dust'
+#alias grep='rg'
+alias find='fd'
+
+# Hex
+alias i2h='python3 ~/int_to_hex.py'
+alias h2i='python3 ~/hex_to_int.py'
+
+# ------------------------------------------------------------------------------
+# Gruvbox colors
+# ------------------------------------------------------------------------------
+
+GB_BG='#282828'
+GB_RED='\[\033[38;2;251;73;52m\]'
+GB_GREEN='\[\033[38;2;184;187;38m\]'
+GB_YELLOW='\[\033[38;2;250;189;47m\]'
+GB_BLUE='\[\033[38;2;131;165;152m\]'
+GB_PURPLE='\[\033[38;2;211;134;155m\]'
+GB_AQUA='\[\033[38;2;142;192;124m\]'
+GB_ORANGE='\[\033[38;2;254;128;25m\]'
+GB_RESET='\[\033[0m\]'
+# Gruvbox Prompt
+export PS1="${GB_GREEN}\u${GB_RESET}@${GB_AQUA}\h${GB_RESET}:${GB_BLUE}\w${GB_RESET}\$ "
+# Gruvbox LS_COLORS
+export LS_COLORS="di=1;34:ln=36:so=35:pi=33:ex=32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+alias ls='ls --color=auto'
+export TERM=xterm-256color
+
+# ------------------------------------------------------------------------------
+# Export Paths and Environment Variables
+# ------------------------------------------------------------------------------
+# CUDA Paths and Aliases
+export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+# Verilator Path
+export PATH=$HOME/.local/verilator/bin:$PATH
+
+# Fusesoc
+export PATH="$PATH:/home/freake/.local/bin"
+
+# Regolith Terminal Tweaks
+# 1. Kill the VTE terminal integration (common lag source in Regolith)
+export VTE_VERSION=""
+
+# 2. Ensure no hidden hooks are running on every Enter press
+export PROMPT_COMMAND=""
+
+# 3. Use a static, fast prompt (no git calculations or fancy logic)
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# 4. Final safety check for command-not-found
+unset -f command_not_found_handle 2>/dev/null
+
+# ------------------------------------------------------------------------------
+# Start a tmux session with a specific layout
+# ------------------------------------------------------------------------------
+stmux() {
+  SESSION="main"
+
+  # 1. Kill and wait for cleanup
+  tmux kill-session -t $SESSION 2>/dev/null
+  while tmux has-session -t $SESSION 2>/dev/null; do sleep 0.05; done
+
+  # 2. Create session and capture the ID of the first pane
+  # Using -P and -F ensures we get the unique pane ID immediately
+  P_LEFT_TOP=$(tmux new-session -d -s $SESSION -n 'work' -x "$(tput cols)" -y "$(tput lines)" -P -F "#{pane_id}")
+
+  # 3. Create the grid using the unique IDs
+  # Split P_LEFT_TOP to create the right column, capture its ID
+  P_RIGHT_TOP=$(tmux split-window -h -t "$P_LEFT_TOP" -P -F "#{pane_id}")
+
+  # Split the left pane vertically to create bottom-left
+  tmux split-window -v -t "$P_LEFT_TOP"
+
+  # Split the right pane vertically to create bottom-right
+  tmux split-window -v -t "$P_RIGHT_TOP"
+
+  # 4. Finalize layout and colors
+  tmux select-layout -t "$SESSION:work" tiled
+  tmux set-option -t $SESSION window-style 'bg=#282828'
+  tmux set-option -t $SESSION window-active-style 'bg=#282828'
+
+  # 5. Attach
+  tmux select-pane -t "$P_LEFT_TOP"
+  tmux attach-session -t $SESSION
+}
+
+# ------------------------------------------------------------------------------
+# Start a stats monitoring layout in regolith.
+# ------------------------------------------------------------------------------
+stats() {
+  i3-msg "split v"
+  gnome-terminal --class="stats_nvitop" -- nvitop --monitor full &
+  sleep 0.6
+  i3-msg "[class=\"stats_nvitop\"] focus"
+  i3-msg "split h"
+  gnome-terminal --class="stats_aqua" -- asciiquarium &
+  sleep 0.5
+  i3-msg "[class=\"stats_aqua\"] focus"
+  i3-msg "resize set width 33 ppt"
+  i3-msg "[class=\"stats_nvitop\"] focus"
+  i3-msg "resize shrink height 7 px or 7 ppt"
+  sleep 0.5
+  i3-msg "focus up"
+  exec btop
+}
+
+# Start Starship prompt and Rust environment
+. "$HOME/.cargo/env"
+eval "$(starship init bash)"

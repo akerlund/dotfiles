@@ -1,0 +1,99 @@
+#format = "$username$hostname$directory$git_branch$git_status$python$custom$line_break$character"
+format = "$username$hostname$directory$git_branch$git_status$python$custom$cmd_duration$time$line_break$character"
+# Använd en enkel symbol för prompten
+[character]
+success_symbol = "[❄️ ❯](bold #88C0D0)"
+error_symbol = "[🔥 ❯](bold #BF616A)"
+
+# Visa bara användare om vi kör via SSH
+[username]
+show_always = false
+style_user = "bold #81A1C1"
+format = "[$user]($style)"
+
+# Visa bara host om vi kör via SSH
+[hostname]
+ssh_only = true
+format = "@[$hostname]($style) "
+
+# Snyggare inställning för mappen
+[directory]
+truncation_length = 3 # Visar max 3 mappar bakåt (t.ex. ~/kod/projekt/src)
+truncate_to_repo = true # Stannar trunkering vid git-rooten (väldigt skönt)
+style = "bold #81A1C1"
+format = "[$path]($style)[$read_only]($read_only_style) "
+#repo_indicator = "" # Visar en ikon om du är i ett git-repo
+read_only = " 󰌾"
+truncation_symbol = "…/"
+repo_root_style = "bold #81A1C1" 
+repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+
+[time]
+disabled = false
+format = "[󱑒 $time]($style) "
+style = "bold #D8DEE9" # Ljusgrå Nord-färg
+time_format = "%R" # 24-timmars klocka
+
+[cmd_duration]
+min_time = 2_000 # Visa bara om det tar mer än 2 sekunder
+format = "[󱎫 $duration]($style) "
+style = "bold #EBCB8B" # Nord Gul
+
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+modified = "!"
+untracked = "?"
+stashed = "$"
+style = "bold #BF616A" # Nord Röd (för att varna om osparade ändringar)
+format = "([\\[$all_status$ahead_behind\\]]($style) )"
+
+[git_branch]
+symbol = " "
+style = "bold #8FBCBB"
+format = "[$symbol$branch]($style) " # Ändra "on" till "via" eller ta bort helt
+
+[sudo]
+disabled = false
+symbol = "󱗣 " # En sköld-ikon eller liknande (Nerd Font)
+style = "bold #BF616A" # Nord Röd
+format = "[$symbol]($style)"
+
+[python]
+symbol = "🐍 "
+style = "bold #EBCB8B"
+format = "[${symbol}${pyenv_prefix}${version}]($style) "
+
+[rust]
+symbol = "🦀 "
+style = "bold #D08770"
+
+# C++
+[c]
+symbol = " "
+style = "bold #5E81AC" # Nord Mörkblå
+format = "[$symbol($version)]($style) "
+
+# SystemVerilog (Letar efter .sv eller .svh)
+[custom.systemverilog]
+command = "echo '󰙔 '" # En kretssymbol eller liknande från Nerd Font
+detect_extensions = ['sv', 'svh', 'v']
+style = "bold #B48EAD" # Nord Lila
+format = "[$symbol($output)]($style) "
+
+# TCL (Letar efter .tcl filer)
+[custom.tcl]
+command = "echo '󰟝 '"
+detect_extensions = ['tcl']
+style = "bold #81A1C1"
+format = "[$symbol($output)]($style) "
+
+# Markdown (Om du vill se när du editerar dokumentation)
+[custom.markdown]
+command = "echo '󰽛 '"
+detect_extensions = ['md']
+style = "bold #EBCB8B" # Nord Gul
+format = "[$symbol]($style) "
+
+
