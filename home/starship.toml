@@ -1,19 +1,19 @@
-#format = "$username$hostname$directory$git_branch$git_status$python$custom$line_break$character"
 format = "$username$hostname$directory$git_branch$git_status$python$custom$cmd_duration$time$line_break$character"
 # Använd en enkel symbol för prompten
 [character]
 success_symbol = "[❄️ ❯](bold #88C0D0)"
 error_symbol = "[🔥 ❯](bold #BF616A)"
 
-# Visa bara användare om vi kör via SSH
+# Visa alltid användare (praktiskt med flera SSH-användare)
 [username]
-show_always = false
-style_user = "bold #81A1C1"
-format = "[$user]($style)"
+show_always = true
+style_user = "bold #8FBCBB"
+format = "[$user]($style)(bold #4C566A)"
 
 # Visa bara host om vi kör via SSH
 [hostname]
-ssh_only = true
+ssh_only = false
+style = "bold #88C0D0"
 format = "@[$hostname]($style) "
 
 # Snyggare inställning för mappen
@@ -25,7 +25,7 @@ format = "[$path]($style)[$read_only]($read_only_style) "
 #repo_indicator = "" # Visar en ikon om du är i ett git-repo
 read_only = " 󰌾"
 truncation_symbol = "…/"
-repo_root_style = "bold #81A1C1" 
+repo_root_style = "bold #81A1C1"
 repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 
 [time]
@@ -56,7 +56,7 @@ deleted = '✘'
 [git_branch]
 symbol = " "
 style = "bold #8FBCBB"
-format = "[$symbol$branch]($style) " # Ändra "on" till "via" eller ta bort helt
+format = "[[$symbol](bold #7d7ec0)$branch]($style) "
 
 [sudo]
 disabled = false
