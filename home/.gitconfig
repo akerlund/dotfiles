@@ -36,6 +36,8 @@
     lg = log --decorate --oneline --graph --format=\"%C(auto)%h %d%Creset %s (%C(green)%cn%C(reset)) (%C(red)%cr%C(reset))\"
     update = !git pull --rebase --recurse-submodules && git submodule update --init
     di = difftool
+    su = submodule update --init
+    sur = submodule update --init --recursive
 
 [branch "master"]
     rebase = true
