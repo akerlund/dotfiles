@@ -36,3 +36,46 @@ stats() {
   i3-msg "focus up"
   exec btop
 }
+
+# Auto-activate venvs for known repo roots.
+AUTO_VENV_ROOTS=(
+  "/home/freake/github/ComfyUI"
+)
+
+# Override cd so entering a managed repo automatically enables its venv.
+cd() {
+
+  local repo_root target_venv
+
+  # Stop immediately if the directory change fails.
+  builtin cd "$@" || return
+
+  # Find the configured repo root that contains the new working directory.
+  target_venv=""
+  for repo_root in "${AUTO_VENV_ROOTS[@]}"; do
+    if [[ "$PWD" == "$repo_root"* ]]; then
+      target_venv="$repo_root/venv"
+      break
+    fi
+  done
+
+  if [ -n "$target_venv" ]; then
+    # Activate that repo's venv when entering it or one of its subdirectories.
+    if [ -f "$target_venv/bin/activate" ] && [ "$VIRTUAL_ENV" != "$target_venv" ]; then
+      if [ -n "$VIRTUAL_ENV" ] && command -v deactivate >/dev/null 2>&1; then
+        deactivate
+      fi
+      . "$target_venv/bin/activate"
+      echo "🐍 Virtual environment activated: $target_venv"
+    fi
+  elif [ -n "$VIRTUAL_ENV" ]; then
+    # Deactivate only if the active venv belongs to one of the managed repo roots.
+    for repo_root in "${AUTO_VENV_ROOTS[@]}"; do
+      if [ "$VIRTUAL_ENV" = "$repo_root/venv" ] && command -v deactivate >/dev/null 2>&1; then
+        deactivate
+        echo "🐍 Virtual environment deactivated."
+        break
+      fi
+    done
+  fi
+}

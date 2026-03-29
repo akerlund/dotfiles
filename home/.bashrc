@@ -10,7 +10,10 @@ DOTS="/home/freake/github/dotfiles/home"
 # 3. Aliases (Shortcuts)
 [ -f "$DOTS/.bash.aliases.sh" ] && . "$DOTS/.bash.aliases.sh"
 
-# 4. Starship
+# 4. ComfyUI helpers
+[ -f "$DOTS/.bash.comfyui.sh" ] && . "$DOTS/.bash.comfyui.sh"
+
+# 5. Starship
 [ -f "$DOTS/.bash.starship.sh" ] && . "$DOTS/.bash.starship.sh"
 
 # Clean up variable
