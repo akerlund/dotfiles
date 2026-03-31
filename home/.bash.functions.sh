@@ -40,6 +40,8 @@ stats() {
 # Auto-activate venvs for known repo roots.
 AUTO_VENV_ROOTS=(
   "/home/freake/github/ComfyUI"
+  "/home/freake/github/kohya_ss"
+  "/home/freake/github/OneTrainer"
 )
 
 # Override cd so entering a managed repo automatically enables its venv.
