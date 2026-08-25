@@ -4,6 +4,10 @@ format = "$username$hostname$directory$git_branch$git_status$python$custom$cmd_d
 success_symbol = "[❄️ ❯](bold #88C0D0)"
 error_symbol = "[🔥 ❯](bold #BF616A)"
 
+# Alternativa
+#success_symbol = "[❄︎ ❯](bold #88C0D0)"
+#error_symbol = "[✖ ❯](bold #BF616A)"
+
 # Visa alltid användare (praktiskt med flera SSH-användare)
 [username]
 show_always = true
