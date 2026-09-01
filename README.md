@@ -8,6 +8,7 @@ The files are placed under `/usr/local/share/fonts`, which is a global font dire
 If icons break when using SSH, remember fonts are rendered on the client machine (the computer running the terminal app), not on the remote host. Install/select a Nerd Font on that client as well.
 
 ```bash
+sudo apt install curl
 sudo mkdir -p /usr/local/share/fonts/JetBrainsMonoNerd
 cd /tmp && curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
 sudo unzip -o JetBrainsMono.zip -d /usr/local/share/fonts/JetBrainsMonoNerd
