@@ -1,4 +1,4 @@
-format = "$username$hostname$directory$git_branch$git_status$python$custom$cmd_duration$time$line_break$character"
+format = "$username$hostname$directory$git_branch$git_status$custom$conda$python$cmd_duration$time$line_break$character"
 # Använd en enkel symbol för prompten
 [character]
 success_symbol = "[❄️ ❯](bold #88C0D0)"
@@ -68,6 +68,13 @@ symbol = "󱗣 " # En sköld-ikon eller liknande (Nerd Font)
 style = "bold #BF616A" # Nord Röd
 format = "[$symbol]($style)"
 
+[conda]
+symbol = "🐍 "
+style = "bold #A3BE8C" # Nord Grön
+format = "[\\[$symbol$environment\\]]($style) "
+ignore_base = false
+truncation_length = 1
+
 [python]
 symbol = "🐍 "
 style = "bold #EBCB8B"
@@ -102,6 +109,6 @@ format = "[$symbol($output)]($style) "
 command = "echo '󰽛 '"
 detect_extensions = ['md']
 style = "bold #EBCB8B" # Nord Gul
-format = "[$symbol]($style) "
+format = "[$symbol($output)]($style) "
 
 
