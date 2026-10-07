@@ -1,7 +1,7 @@
 format = "$username$hostname$directory$git_branch$git_status$custom$conda$python$cmd_duration$time$line_break$character"
 # Använd en enkel symbol för prompten
 [character]
-success_symbol = "[❄️ ❯](bold #88C0D0)"
+success_symbol = "[❄︎ ❯](bold #88C0D0)"
 error_symbol = "[🔥 ❯](bold #BF616A)"
 
 # Alternativa
