@@ -2,15 +2,18 @@
   name  = name
   email = email
 
+[url "git@github-other:akerlund/"]
+	insteadOf = git@github.com:akerlund/
+
 [core]
 	editor = vim
 
 [color]
-   ui     = auto
-   branch = auto
-   status = auto
-   diff   = auto
-   interactive = auto
+  ui     = auto
+  branch = auto
+  status = auto
+  diff   = auto
+  interactive = auto
 
 [color "branch"]
   current = yellow reverse
@@ -29,16 +32,15 @@
   untracked = cyan
 
 [alias]
-    cm = commit -m
-    st = status
-    co = checkout
-    br = branch
-    lg = log --decorate --oneline --graph --format=\"%C(auto)%h %d%Creset %s (%C(green)%cn%C(reset)) (%C(red)%cr%C(reset))\"
-    update = !git pull --rebase --recurse-submodules && git submodule update --init
-    di = difftool
-    su = submodule update --init
-    sur = submodule update --init --recursive
+  cm = commit -m
+  st = status
+  co = checkout
+  br = branch
+  lg = log --decorate --oneline --graph --format=\"%C(auto)%h %d%Creset %s (%C(green)%cn%C(reset)) (%C(red)%cr%C(reset))\"
+  update = !git pull --rebase --recurse-submodules && git submodule update --init
+  di = difftool
+  su = submodule update --init
+  sur = submodule update --init --recursive
 
 [branch "master"]
-    rebase = true
-
+  rebase = true
